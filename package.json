@@ -16,7 +16,7 @@
     "typescript": "^3.0.1"
   },
   "scripts": {
-    "test": "jest",
+    "test": "jest --config=jest.json",
     "build": "tsc",
     "lint": "tslint -p tsconfig.json",
     "prepare" : "npm run build",
