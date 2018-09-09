@@ -10,9 +10,5 @@ const defaultTag = {
   color: '#FFF'
 }
 
-export default <O extends IFunctionOptions>(options?: O) => <
-  T extends object,
-  U extends T & O & ITag
->(
-  tag?: T
-): U => defaults(clone(tag), options, defaultTag) as U
+export default <O extends IFunctionOptions>(options?: O) => <T extends object, U extends T & O & ITag>(tag?: T): U =>
+  defaults(clone(tag), options, defaultTag) as U
