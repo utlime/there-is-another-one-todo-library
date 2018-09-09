@@ -1,5 +1,5 @@
-import ITodo from '@/todo/ITodo';
 import { clone, defaults } from 'lodash';
+import ITodo from './ITodo';
 
 interface IFunctionOptions {
   task: string;

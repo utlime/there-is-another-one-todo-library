@@ -1,5 +1,5 @@
-import ITag from '@/tag/ITag';
 import { clone, defaults } from 'lodash';
+import ITag from './ITag';
 
 interface IFunctionOptions {
   name: string;

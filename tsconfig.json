@@ -4,19 +4,18 @@
     "module": "commonjs",
     "declaration": true,
     "strict": true,
-    "importHelpers": true,
     "moduleResolution": "node",
-    "allowSyntheticDefaultImports": true,
-    "esModuleInterop": true,
-    "sourceMap": false,
+    "sourceMap": true,
     "baseUrl": ".",
-    "outDir": "./lib",
+    "outDir": "lib",
     "paths": {
       "@/*": [
         "src/*"
       ]
     },
     "lib": [
+      "es2015",
+      "es2016",
       "es2017"
     ]
   },

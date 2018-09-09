@@ -1,4 +1,4 @@
-import ITag from '@/tag/ITag';
+import ITag from './ITag';
 
 export default interface ITagCollection {
   tags: ITag[];

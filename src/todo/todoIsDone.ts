@@ -1,3 +1,3 @@
-import ITodo from '@/todo/ITodo';
+import ITodo from './ITodo';
 
 export default (done: boolean) => (todo: ITodo): boolean => todo.done === done;
