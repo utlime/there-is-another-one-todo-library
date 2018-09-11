@@ -12,9 +12,9 @@ const pkg = require('./package.json');
 const libraryName = 'there-is-another-one-todo-library';
 
 export default {
-  input: `src/${libraryName}.ts`,
+  input: `src/index.ts`,
   output: [
-    { file: pkg.main, name: camelCase(libraryName), format: 'umd', sourcemap: true, globals: { "lodash": "Lodash" } },
+    { file: pkg.main, format: 'umd', sourcemap: true, name: camelCase(libraryName), globals: { "lodash": "Lodash" } },
     { file: pkg.module, format: 'es', sourcemap: true },
   ],
   external: [
@@ -39,7 +39,6 @@ export default {
         moduleDirectory: 'node_modules'
       }
     }),
-
     // Resolve source maps to the original source
     sourceMaps(),
   ],
