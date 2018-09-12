@@ -7,6 +7,5 @@ interface IFunctionOptions {
 }
 
 export default (options: IFunctionOptions) =>
-  <T extends ITag>(tag?: T): T => (
-    assign(clone(tag), options)
-  );
+  <T extends ITag>(tag?: T): T =>
+    assign(clone(tag), options);

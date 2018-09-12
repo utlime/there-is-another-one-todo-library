@@ -7,6 +7,5 @@ interface IFunctionOptions {
 }
 
 export default (options: IFunctionOptions) =>
-  <T extends ITodo>(todo?: T): T => (
-    assign(clone(todo), options)
-  );
+  <T extends ITodo>(todo?: T): T =>
+    assign(clone(todo), options);
