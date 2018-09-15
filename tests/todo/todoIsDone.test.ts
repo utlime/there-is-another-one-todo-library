@@ -1,23 +1,19 @@
-import todoIsDone from '@/todo/todoIsDone';
+import { todoIsDone } from '@/todo';
 
 describe('FTodoIsDone', () => {
   it('should be truthy if task is done', () => {
-    expect(todoIsDone(false)({ task: 'todo', done: false }))
-      .toBeTruthy();
+    expect(todoIsDone(false)({ task: 'todo', done: false })).toBeTruthy();
   });
 
   it('should be falsy if task is not done', () => {
-    expect(todoIsDone(true)({ task: 'todo', done: false }))
-      .toBeFalsy();
+    expect(todoIsDone(true)({ task: 'todo', done: false })).toBeFalsy();
   });
 
   it('should be truthy if task is done', () => {
-    expect(todoIsDone(true)({ task: 'todo', done: true }))
-      .toBeTruthy();
+    expect(todoIsDone(true)({ task: 'todo', done: true })).toBeTruthy();
   });
 
   it('should be falsy if task is not done', () => {
-    expect(todoIsDone(false)({ task: 'todo', done: true }))
-      .toBeFalsy();
+    expect(todoIsDone(false)({ task: 'todo', done: true })).toBeFalsy();
   });
 });

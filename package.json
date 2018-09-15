@@ -34,13 +34,14 @@
     "commit": "git-cz",
     "semantic-release": "semantic-release",
     "semantic-release-prepare": "ts-node tools/semantic-release-prepare",
-    "precommit-disable": "lint-staged",
+    "precommit": "lint-staged",
+    "prettier": "prettier --write {src,tests}/**/*.ts",
     "prepush": "npm run test:prod && npm run build",
     "commitmsg": "commitlint -E GIT_PARAMS",
     "travis-deploy-once": "travis-deploy-once"
   },
   "lint-staged": {
-    "{src,test}/**/*.ts": [
+    "{src,tests}/**/*.ts": [
       "prettier --write",
       "git add"
     ]
@@ -52,7 +53,8 @@
   },
   "prettier": {
     "semi": true,
-    "singleQuote": true
+    "singleQuote": true,
+    "trailingComma": "es5"
   },
   "commitlint": {
     "extends": [
@@ -95,8 +97,5 @@
     "tslint-config-standard": "^8.0.1",
     "typedoc": "^0.12.0",
     "typescript": "^3.0.3"
-  },
-  "peerDependencies": {
-    "lodash": "^4.17.10"
   }
 }

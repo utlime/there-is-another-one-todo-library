@@ -1,3 +1,8 @@
-import ITodo from './ITodo';
+import { ITodo } from './ITodo';
 
-export default (done: boolean) => (todo: ITodo): boolean => todo.done === done;
+/**
+ * Return boolean value if task status is equal to done
+ */
+export function todoIsDone(done: boolean): (todo: ITodo) => boolean {
+  return todo => todo.done === done;
+}

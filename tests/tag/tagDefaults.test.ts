@@ -1,21 +1,31 @@
-import tagDefaults from '@/tag/tagDefaults';
+import { tagDefaults } from '@/tag';
 
 describe('todoDefaults', () => {
-  it('should be created with task only', () => {
-    expect(tagDefaults({ name: 'tag' })())
-      .toMatchObject({ name: 'tag', color: '#FFF' });
+  it('should be created with tag name only', () => {
+    expect(tagDefaults()({ name: 'tag' })).toMatchObject({
+      name: 'tag',
+      color: '#FFF',
+    });
   });
 
-  it('should be new object', () => {
-    const tag = { test: 123 };
-
-    expect(tagDefaults({ name: 'tag' })(tag))
-      .not
-      .toBe(tag);
+  it('should be created with tag name only', () => {
+    expect(tagDefaults({})({ name: 'tag' })).toMatchObject({
+      name: 'tag',
+      color: '#FFF',
+    });
   });
 
-  it('should be extended', () => {
-    expect(tagDefaults({ name: 'todo' })({ test: 123  }))
-      .toMatchObject({ test: 123  });
+  it('should be created with default color', () => {
+    expect(tagDefaults({ color: '#000' })({ name: 'tag' })).toMatchObject({
+      name: 'tag',
+      color: '#000',
+    });
+  });
+
+  it('should not update color', () => {
+    expect(tagDefaults({ color: '#F00' })({ name: 'tag', color: '#000' })).toMatchObject({
+      name: 'tag',
+      color: '#000',
+    });
   });
 });

@@ -1,4 +1,7 @@
-export default interface ITag {
+/**
+ * Tag object to organise collections
+ */
+export interface ITag {
   name: string;
   color: string;
 }

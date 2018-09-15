@@ -1,15 +1,15 @@
-import { clone, defaults } from 'lodash';
-import ITag from './ITag';
+import { ITag } from './ITag';
 
-interface IFunctionOptions {
-  name: string;
-  color?: string;
+/**
+ * Create new tag with default options
+ */
+export function tagDefaults(
+  options: {
+    color?: string;
+  } = { color: '#FFF' }
+): (tag: { name: string; color?: string }) => ITag {
+  return tag => ({
+    color: tag.color || options.color || '#FFF',
+    name: tag.name,
+  });
 }
-
-const defaultTag = {
-  color: '#FFF'
-};
-
-export default <O extends IFunctionOptions>(options?: O) =>
-  <T extends object, U extends T & O & ITag>(tag?: T): U =>
-    defaults(clone(tag), options, defaultTag) as U;

@@ -1,21 +1,23 @@
-import todoDefaults from '@/todo/todoDefaults';
+import { todoDefaults } from '@/todo';
 
 describe('todoDefaults', () => {
   it('should be created with task only', () => {
-    expect(todoDefaults({ task: 'todo' })())
-      .toMatchObject({ task: 'todo', done: false });
+    expect(todoDefaults()({ task: 'todo' })).toMatchObject({
+      task: 'todo',
+      done: false,
+    });
+  });
+
+  it('should be created with done true', () => {
+    expect(todoDefaults({ done: true })({ task: 'todo' })).toMatchObject({
+      task: 'todo',
+      done: true,
+    });
   });
 
   it('should be new object', () => {
-    const todo = { test: 123, task: 'todo', done: false };
+    const todo = { task: 'todo', done: false };
 
-    expect(todoDefaults({ task: 'todo' })(todo))
-      .not
-      .toBe(todo);
-  });
-
-  it('should be extended', () => {
-    expect(todoDefaults({ task: 'todo' })({ test: 123  }))
-      .toMatchObject({ test: 123  });
+    expect(todoDefaults({})(todo)).not.toBe(todo);
   });
 });

@@ -1,11 +1,16 @@
-import { assign, clone } from 'lodash';
-import ITag from './ITag';
+import { ITag } from './ITag';
 
-interface IFunctionOptions {
-  name?: string;
-  color?: string;
+/**
+ * Create new tag with option
+ */
+export function tagUpdate(
+  options: {
+    name?: string;
+    color?: string;
+  } = {}
+): (tag: ITag) => ITag {
+  return tag => ({
+    color: options.color || tag.color,
+    name: options.name || tag.name,
+  });
 }
-
-export default (options: IFunctionOptions) =>
-  <T extends ITag>(tag?: T): T =>
-    assign(clone(tag), options);

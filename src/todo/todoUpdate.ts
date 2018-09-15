@@ -1,11 +1,16 @@
-import { assign, clone } from 'lodash';
-import ITodo from './ITodo';
+import { ITodo } from './ITodo';
 
-interface IFunctionOptions {
-  task?: string;
-  done?: boolean;
+/**
+ * Create new task with option
+ */
+export function todoUpdate(
+  options: {
+    task?: string;
+    done?: boolean;
+  } = {}
+): (todo: ITodo) => ITodo {
+  return todo => ({
+    task: options.task || todo.task,
+    done: options.done || todo.done,
+  });
 }
-
-export default (options: IFunctionOptions) =>
-  <T extends ITodo>(todo?: T): T =>
-    assign(clone(todo), options);

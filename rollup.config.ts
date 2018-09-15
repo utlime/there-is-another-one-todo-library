@@ -14,11 +14,8 @@ const libraryName = 'there-is-another-one-todo-library';
 export default {
   input: `src/index.ts`,
   output: [
-    { file: pkg.main, format: 'umd', sourcemap: true, name: camelCase(libraryName), globals: { "lodash": "Lodash" } },
+    { file: pkg.main, format: 'umd', sourcemap: true, name: camelCase(libraryName) },
     { file: pkg.module, format: 'es', sourcemap: true },
-  ],
-  external: [
-    ...Object.keys(pkg.peerDependencies)
   ],
   watch: {
     include: 'src/**',

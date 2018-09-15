@@ -1,15 +1,13 @@
-import { clone, defaults } from 'lodash';
-import ITodo from './ITodo';
+import { ITodo } from './ITodo';
 
-interface IFunctionOptions {
-  task: string;
-  done?: boolean;
+/**
+ * Create new task with default options
+ */
+export function todoDefaults(
+  options: { done?: boolean } = { done: false }
+): (todo: { task: string; done?: boolean }) => ITodo {
+  return todo => ({
+    done: todo.done || options.done || false,
+    task: todo.task,
+  });
 }
-
-const defaultTodo = {
-  done: false
-};
-
-export default (options?: IFunctionOptions) =>
-  <T extends object, U extends T & ITodo>(todo?: T): U =>
-    defaults(clone(todo), options, defaultTodo) as U;
